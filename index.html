@@ -43,15 +43,16 @@
             color: #ffffff;
             margin-top: 0;
         }
-        .shield-link img {
-            transform: scale(1.5);
+        /* SF Button Hover Effect */
+        .sf-btn {
+            display: inline-block;
             margin: 20px 0;
-            transition: 0.3s;
+            transition: transform 0.2s ease-in-out;
         }
-        .shield-link img:hover {
-            transform: scale(1.6);
-            opacity: 0.9;
+        .sf-btn:hover {
+            transform: scale(1.05);
         }
+        
         /* GitHub Links Section */
         .github-section {
             display: flex;
@@ -129,10 +130,13 @@
         <div class="download-box">
             <h2>Download Latest Version</h2>
             <p>Get the fully compiled Nuitka C++ Executable (Zero Installation)</p>
-            <a class="shield-link" href="https://sourceforge.net/projects/s-localhost/files/latest/download" target="_blank">
-                <img alt="Download S-Localhost" src="https://img.shields.io/sourceforge/dt/s-localhost.svg" >
+            
+            <!-- তোর দেওয়া অফিশিয়াল SourceForge বাটন -->
+            <a class="sf-btn" href="https://sourceforge.net/projects/s-localhost/files/latest/download">
+                <img alt="Download S-Localhost" src="https://a.fsdn.com/con/app/sf-download-button" width="276" height="48" srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x">
             </a>
-            <p style="margin-top: 25px; color: #8b949e; font-size: 0.9em;">Total Live Downloads Tracked by SourceForge</p>
+
+            <p style="margin-top: 15px; color: #8b949e; font-size: 0.9em;">Total Live Downloads Tracked by SourceForge</p>
         </div>
 
         <!-- Android Recommendation Banner -->
