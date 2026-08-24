@@ -1,1 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-Localhost | Portable Server by Sgdev</title>
+    <style>
+        /* Modern Dark Developer Theme */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        h1 {
+            color: #58a6ff;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+        }
+        p.subtitle {
+            font-size: 1.2em;
+            color: #8b949e;
+            margin-bottom: 40px;
+        }
+        /* Main Download Section */
+        .download-box {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .download-box h2 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+        .shield-link img {
+            transform: scale(1.5);
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+        .shield-link img:hover {
+            transform: scale(1.6);
+            opacity: 0.9;
+        }
+        /* GitHub Links Section */
+        .github-section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: 1.1em;
+        }
+        .btn-main {
+            background-color: #238636;
+            color: white;
+            border: 1px solid rgba(240, 246, 252, 0.1);
+        }
+        .btn-main:hover { background-color: #2ea043; }
+        .btn-secondary {
+            background-color: #21262d;
+            color: #c9d1d9;
+            border: 1px solid #30363d;
+        }
+        .btn-secondary:hover { background-color: #30363d; border-color: #8b949e; }
+        
+        /* Recommendation Banner */
+        .alert-android {
+            background-color: #1f2328;
+            border-left: 5px solid #d29922;
+            padding: 20px;
+            text-align: left;
+            border-radius: 6px;
+            margin-bottom: 40px;
+        }
+        .alert-android h3 { margin-top: 0; color: #d29922; }
+        .alert-android a { color: #58a6ff; font-weight: bold; text-decoration: none; }
+        .alert-android a:hover { text-decoration: underline; }
 
+        /* Source Code Box */
+        .code-header {
+            text-align: left;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #58a6ff;
+        }
+        .code-box {
+            background-color: #010409;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            height: 250px;
+            overflow-y: auto;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            color: #00ff00;
+            font-size: 0.95em;
+            line-height: 1.5;
+            box-shadow: inset 0 0 10px #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo and Title -->
+        <h1>S-Localhost</h1>
+        <p class="subtitle">Ultra-Fast Portable Local Server Utility</p>
+
+        <!-- Main SourceForge Download -->
+        <div class="download-box">
+            <h2>Download Latest Version</h2>
+            <p>Get the fully compiled Nuitka C++ Executable (Zero Installation)</p>
+            <a class="shield-link" href="https://sourceforge.net/projects/s-localhost/files/latest/download" target="_blank">
+                <img alt="Download S-Localhost" src="https://img.shields.io/sourceforge/dt/s-localhost.svg" >
+            </a>
+            <p style="margin-top: 25px; color: #8b949e; font-size: 0.9em;">Total Live Downloads Tracked by SourceForge</p>
+        </div>
+
+        <!-- Android Recommendation Banner -->
+        <div class="alert-android">
+            <h3>📱 Best for Android Users!</h3>
+            <p>Looking to use S-Localhost smoothly on your Android device? We highly recommend downloading Release 1.2 for the best mobile-friendly local server experience.</p>
+            <p>👉 <a href="https://github.com/sgdev-official/S-Localhost/releases#release-1.2" target="_blank">Download S-Localhost v1.2 for Android</a></p>
+        </div>
+
+        <!-- GitHub Links Section -->
+        <div class="github-section">
+            <a href="https://github.com/sgdev-official/S-Localhost" class="btn btn-main" target="_blank">⭐ View on GitHub</a>
+            <a href="https://github.com/sgdev-official/S-Localhost/releases/tag/1.1" class="btn btn-secondary" target="_blank">⬇️ Download v1.1 (Archive)</a>
+        </div>
+
+        <!-- 100-Line Source Code Preview -->
+        <div class="code-header">📁 Preview: S-Localhost Core Architecture (Python)</div>
+        <div class="code-box">
+# ==========================================
+# Project: S-Localhost
+# Developed by: Sgdev (Shubhomoy)
+# Core: Python + CustomTkinter (C++ Nuitka)
+# ==========================================
+
+import http.server
+import socketserver
+import threading
+import socket
+import customtkinter as ctk
+import os
+
+class SLocalhost(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+        self.title("S-Localhost - Portable Server")
+        self.geometry("600x400")
+        self.server_thread = None
+        self.is_running = False
+        
+        # UI Setup
+        self.header = ctk.CTkLabel(self, text="S-Localhost Server", font=("Arial", 24, "bold"))
+        self.header.pack(pady=20)
+        
+        self.ip_label = ctk.CTkLabel(self, text=f"Local IP: {self.get_local_ip()}:8000")
+        self.ip_label.pack(pady=10)
+        
+        self.start_btn = ctk.CTkButton(self, text="Start Server", command=self.start_server)
+        self.start_btn.pack(pady=20)
+
+    def get_local_ip(self):
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect(("8.8.8.8", 80))
+            ip = s.getsockname()[0]
+            s.close()
+            return ip
+        except Exception:
+            return "127.0.0.1"
+
+    def run_server(self):
+        PORT = 8000
+        Handler = http.server.SimpleHTTPRequestHandler
+        with socketserver.TCPServer(("", PORT), Handler) as httpd:
+            print(f"Serving at port {PORT}")
+            httpd.serve_forever()
+
+    def start_server(self):
+        if not self.is_running:
+            self.server_thread = threading.Thread(target=self.run_server, daemon=True)
+            self.server_thread.start()
+            self.start_btn.configure(text="Server Running (Port 8000)", fg_color="green")
+            self.is_running = True
+
+if __name__ == "__main__":
+    app = SLocalhost()
+    app.mainloop()
+        </div>
+        <p style="text-align: left; font-size: 0.9em; color: #8b949e;">
+            *Showing partial source code. Visit the <a href="https://github.com/sgdev-official/S-Localhost" style="color: #58a6ff;">GitHub Repo</a> to view the full 100+ lines.
+        </p>
+
+    </div>
+
+</body>
+</html>
